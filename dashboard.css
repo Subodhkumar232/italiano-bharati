@@ -1,0 +1,513 @@
+/* =======================================
+   Italiano Bharati Academy Dashboard
+======================================= */
+
+:root{
+
+--bg:#F8F4EF;
+--card:#ffffff;
+--wine:#7A2235;
+--wine-light:#A83A56;
+--gold:#D4AF37;
+--text:#2F2A28;
+--text-light:#6B6662;
+--border:#E8DDD1;
+--shadow:0 12px 35px rgba(0,0,0,.08);
+
+}
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+
+}
+
+body{
+
+font-family:'Crimson Pro',serif;
+background:var(--bg);
+color:var(--text);
+
+}
+
+a{
+
+text-decoration:none;
+color:inherit;
+
+}
+
+button{
+
+cursor:pointer;
+font-family:inherit;
+
+}
+
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar{
+
+position:sticky;
+top:0;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:18px 60px;
+
+background:rgba(255,255,255,.82);
+
+backdrop-filter:blur(15px);
+
+border-bottom:1px solid var(--border);
+
+z-index:999;
+
+}
+
+.logo-area{
+
+display:flex;
+align-items:center;
+gap:18px;
+
+}
+
+.logo{
+
+width:58px;
+height:58px;
+object-fit:contain;
+
+}
+
+.logo-area h2{
+
+font-family:'Playfair Display',serif;
+
+font-size:1.55rem;
+
+color:var(--wine);
+
+}
+
+.logo-area p{
+
+color:var(--text-light);
+
+font-size:.9rem;
+
+}
+
+.top-right{
+
+display:flex;
+
+gap:16px;
+
+align-items:center;
+
+}
+
+.theme-btn{
+
+width:44px;
+height:44px;
+
+border:none;
+
+border-radius:50%;
+
+background:#fff;
+
+box-shadow:var(--shadow);
+
+font-size:18px;
+
+}
+
+.logout-btn{
+
+padding:12px 28px;
+
+background:linear-gradient(135deg,var(--wine),var(--wine-light));
+
+color:#fff;
+
+border:none;
+
+border-radius:10px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.logout-btn:hover{
+
+transform:translateY(-2px);
+
+}
+
+/* ===========================
+WELCOME
+=========================== */
+
+.welcome-section{
+
+padding:70px 60px 30px;
+
+}
+
+.welcome-section h1{
+
+font-family:'Playfair Display',serif;
+
+font-size:3rem;
+
+margin-bottom:12px;
+
+color:var(--wine);
+
+}
+
+.welcome-section p{
+
+font-size:1.2rem;
+
+color:var(--text-light);
+
+}
+
+/* ===========================
+GRID
+=========================== */
+
+.dashboard-grid{
+
+padding:25px 60px 80px;
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+gap:30px;
+
+}
+/* ===========================
+CARDS
+=========================== */
+
+.card{
+
+background:rgba(255,255,255,.92);
+
+border:1px solid var(--border);
+
+border-radius:22px;
+
+padding:30px;
+
+box-shadow:var(--shadow);
+
+transition:.35s ease;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 18px 40px rgba(0,0,0,.12);
+
+}
+
+.card-icon{
+
+width:70px;
+
+height:70px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:32px;
+
+border-radius:18px;
+
+background:linear-gradient(135deg,var(--wine),var(--wine-light));
+
+color:white;
+
+margin-bottom:20px;
+
+}
+
+.card h3{
+
+font-family:'Playfair Display',serif;
+
+font-size:1.6rem;
+
+margin-bottom:18px;
+
+color:var(--wine);
+
+}
+
+.card p{
+
+font-size:1rem;
+
+line-height:1.7;
+
+color:var(--text-light);
+
+margin-bottom:10px;
+
+}
+
+.card ul{
+
+list-style:none;
+
+margin:15px 0;
+
+}
+
+.card ul li{
+
+padding:10px 0;
+
+border-bottom:1px solid #eee;
+
+}
+
+.card ul li:last-child{
+
+border-bottom:none;
+
+}
+
+/* ===========================
+BUTTONS
+=========================== */
+
+.action-btn{
+
+margin-top:20px;
+
+padding:14px 28px;
+
+width:100%;
+
+border:none;
+
+border-radius:12px;
+
+background:linear-gradient(135deg,var(--wine),var(--wine-light));
+
+color:#fff;
+
+font-size:1rem;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.action-btn:hover{
+
+transform:translateY(-2px);
+
+opacity:.95;
+
+}
+
+.logout-big{
+
+margin-top:20px;
+
+width:100%;
+
+padding:15px;
+
+border:none;
+
+border-radius:12px;
+
+background:#2b2b2b;
+
+color:white;
+
+font-size:16px;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.logout-big:hover{
+
+background:#000;
+
+}
+
+.paid{
+
+color:#0b8f3a;
+
+font-weight:700;
+
+}
+
+/* ===========================
+FOOTER
+=========================== */
+
+footer{
+
+margin-top:60px;
+
+padding:40px;
+
+text-align:center;
+
+background:white;
+
+border-top:1px solid var(--border);
+
+}
+
+.footer-content h2{
+
+font-family:'Playfair Display',serif;
+
+color:var(--wine);
+
+margin-bottom:10px;
+
+}
+
+.footer-content p{
+
+color:var(--text-light);
+
+margin:8px 0;
+
+}
+
+/* ===========================
+SCROLLBAR
+=========================== */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--wine);
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#f3f3f3;
+
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:992px){
+
+.navbar{
+
+padding:20px;
+
+flex-wrap:wrap;
+
+gap:20px;
+
+}
+
+.welcome-section{
+
+padding:40px 20px;
+
+}
+
+.dashboard-grid{
+
+padding:20px;
+
+grid-template-columns:1fr;
+
+}
+
+.logo-area h2{
+
+font-size:1.2rem;
+
+}
+
+.welcome-section h1{
+
+font-size:2.1rem;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.card{
+
+padding:22px;
+
+}
+
+.card-icon{
+
+width:60px;
+
+height:60px;
+
+font-size:26px;
+
+}
+
+.action-btn,
+.logout-big{
+
+padding:13px;
+
+font-size:15px;
+
+}
+
+.welcome-section h1{
+
+font-size:1.8rem;
+
+}
+
+}

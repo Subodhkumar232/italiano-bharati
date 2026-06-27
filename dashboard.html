@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Dashboard | Italiano Bharati Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Crimson+Pro:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+
+<div class="logo-area">
+
+<img src="logo.png" class="logo">
+
+<div>
+
+<h2>Italiano Bharati Academy</h2>
+
+<p>Student Dashboard</p>
+
+</div>
+
+</div>
+
+<div class="top-right">
+
+<button class="theme-btn">🌙</button>
+
+<button class="logout-btn">
+
+Logout
+
+</button>
+
+</div>
+
+</header>
+
+<section class="welcome-section">
+
+<h1>
+
+Welcome Back,
+
+<span id="studentName">
+
+Rahul Sharma
+
+</span>
+
+👋
+
+</h1>
+
+<p>
+
+Continue your Italian learning journey.
+
+</p>
+
+</section>
+
+<div class="dashboard-grid">
+
+<!-- Student Profile -->
+
+<div class="card">
+
+<div class="card-icon">
+
+👤
+
+</div>
+
+<h3>Student Profile</h3>
+
+<p><strong>Name :</strong> <span id="name"></span></p>
+
+<p><strong>Email :</strong> <span id="email"></span></p>
+
+<p><strong>Course :</strong> <span id="course"></span></p>
+
+<p><strong>Batch :</strong> <span id="batch"></span></p>
+
+</div>
+
+<!-- Payment -->
+
+<div class="card">
+
+<div class="card-icon">
+
+💳
+
+</div>
+
+<h3>Payment Status</h3>
+
+<p>
+        <strong>Status :</strong>
+        <span id="paymentStatus"></span>
+    </p>
+
+    <p>
+        <strong>Last Transaction :</strong>
+        <span id="lastTransaction"></span>
+    </p>
+
+    <p>
+        <strong>Transaction Date :</strong>
+        <span id="transactionDate"></span>
+    </p>
+
+    <button class="action-btn" id="receiptBtn">
+        View Receipt
+    </button>
+
+</div>
+
+<!-- PDF -->
+
+<div class="card">
+
+<div class="card-icon">
+
+📚
+
+</div>
+
+<h3>PDF Materials</h3>
+
+<ul>
+
+<li>Grammar Notes</li>
+
+<li>Vocabulary Book</li>
+
+<li>Workbook</li>
+
+<li>Practice Sheets</li>
+
+</ul>
+
+<button class="action-btn">
+
+Open Materials
+
+</button>
+
+</div>
+
+<!-- Assignments -->
+
+<div class="card">
+
+<div class="card-icon">
+
+📝
+
+</div>
+
+<h3>Assignments</h3>
+
+<ul>
+
+<li>Assignment 1</li>
+
+<li>Assignment 2</li>
+
+<li>Assignment 3</li>
+
+</ul>
+
+<button class="action-btn">
+
+Open Assignments
+
+</button>
+
+</div>
+<!-- Syllabus -->
+
+<div class="card">
+
+    <div class="card-icon">
+        📖
+    </div>
+
+    <h3>Syllabus</h3>
+
+    <p>
+        View your complete Italian course syllabus,
+        topics and learning roadmap.
+    </p>
+
+    <button class="action-btn">
+        View Syllabus
+    </button>
+
+</div>
+
+<!-- Class Schedule -->
+
+<div class="card">
+<div class="card">
+
+    <div class="card-icon">📅</div>
+
+    <h3>Class Schedule</h3>
+
+    <p><strong>Monday:</strong> <span id="monday"></span></p>
+
+    <p><strong>Tuesday:</strong> <span id="tuesday"></span></p>
+
+    <p><strong>Wednesday:</strong> <span id="wednesday"></span></p>
+
+    <p><strong>Thursday:</strong> <span id="thursday"></span></p>
+
+    <p><strong>Friday:</strong> <span id="friday"></span></p>
+
+    <p><strong>Saturday:</strong> <span id="saturday"></span></p>
+
+    <p><strong>Sunday:</strong> <span id="sunday"></span></p>
+
+</div>
+
+</div>
+
+<!-- Live Classes -->
+
+<div class="card">
+
+    <div class="card-icon">
+        🎥
+    </div>
+
+    <h3>Live Classes</h3>
+
+    <p>
+
+        Join your live Google Meet classes
+        directly from here.
+
+    </p>
+
+    <button class="action-btn" id="liveClassBtn">
+    Join Live Class
+</button>
+
+</div>
+
+<!-- Logout Card -->
+
+<div class="card logout-card">
+
+    <div class="card-icon">
+        🚪
+    </div>
+
+    <h3>Logout</h3>
+
+    <p>
+
+        Sign out securely from your
+        student dashboard.
+
+    </p>
+
+    <button class="logout-big">
+
+        Logout
+
+    </button>
+
+</div>
+
+</div>
+
+<footer>
+
+    <div class="footer-content">
+
+        <h2>Italiano Bharati Academy</h2>
+
+        <p>
+
+            Learn Italian with Confidence.
+
+        </p>
+
+        <p>
+
+            © 2026 Italiano Bharati Academy.
+            All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+<script type="module" src="dashboard.js"></script>
+
+</body>
+</html>
