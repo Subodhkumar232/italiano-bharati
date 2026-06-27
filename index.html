@@ -610,9 +610,9 @@ color:var(--wine);
         Register
     </a>
 
-    <a href="login.html" class="login-btn">
-        Login
-    </a>
+   <button class="login-btn" onclick="openLogin()">
+    Login
+</button>
 
     <button class="theme-toggle" id="themeToggle" title="Toggle dark mode">
         🌙
@@ -1417,7 +1417,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
   });
 });
-function openLogin() {
+function openLoginModal() {
     document.getElementById("loginModal").style.display = "flex";
 }
 
