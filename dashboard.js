@@ -51,6 +51,7 @@ document.getElementById("email").innerHTML=data.email;
 document.getElementById("course").innerHTML=data.course;
 
 document.getElementById("batch").innerHTML=data.batch;
+    
 
     receiptBtn.onclick = () => {
     if(student.receiptUrl){
