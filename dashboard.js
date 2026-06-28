@@ -52,6 +52,62 @@ document.getElementById("course").innerHTML=data.course;
 
 document.getElementById("batch").innerHTML=data.batch;
 
+    receiptBtn.onclick = () => {
+    if(student.receiptUrl){
+        window.open(student.receiptUrl, "_blank");
+    }else{
+        alert("Receipt not available.");
+    }
+};
+
+materialsBtn.onclick = () => {
+    if(student.materialsUrl){
+        window.open(student.materialsUrl, "_blank");
+    }else{
+        alert("Materials not available.");
+    }
+};
+
+assignmentBtn.onclick = () => {
+    if(student.assignmentUrl){
+        window.open(student.assignmentUrl, "_blank");
+    }else{
+        alert("Assignments not available.");
+    }
+};
+
+syllabusBtn.onclick = () => {
+    if(student.syllabusUrl){
+        window.open(student.syllabusUrl, "_blank");
+    }else{
+        alert("Syllabus not available.");
+    }
+};
+
+liveClassBtn.onclick = () => {
+    if(student.liveClassUrl){
+        window.open(student.liveClassUrl, "_blank");
+    }else{
+        alert("Live class not available.");
+    }
+};
+
+recordedBtn.onclick = () => {
+    if(student.recordedClassesUrl){
+        window.open(student.recordedClassesUrl, "_blank");
+    }else{
+        alert("No recorded classes available.");
+    }
+};
+
+paymentHistoryBtn.onclick = () => {
+    if(student.paymentHistoryUrl){
+        window.open(student.paymentHistoryUrl, "_blank");
+    }else{
+        alert("Payment history not available.");
+    }
+};
+
 // ======================
 // LOAD SCHEDULE
 // ======================
