@@ -361,17 +361,111 @@ footer{background:var(--dark-green);color:rgba(255,255,255,0.75);padding:64px 5%
   .gallery-grid{grid-template-columns:1fr 1fr}
   .gallery-item.wide,.gallery-item.tall{grid-column:auto;grid-row:auto}
 }
-@media(max-width:768px){
-  section{padding:72px 5%}
-  .nav-links{display:none}
-  .hamburger{display:flex}
-  .culture-grid,.reviews-grid,.pricing-grid{grid-template-columns:1fr}
-  .price-card.featured{transform:none}
-  .footer-grid{grid-template-columns:1fr}
-  .hero-stats{gap:24px}
-  .about-features{grid-template-columns:1fr}
-  .gallery-grid{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
+@media (max-width:768px){
+
+section{
+    padding:70px 20px;
+}
+
+/* Navbar */
+
+nav{
+    padding:0 15px;
+}
+
+.nav-inner{
+    height:65px;
+}
+
+.logo-text{
+    font-size:1rem;
+}
+
+.logo-text span{
+    font-size:.65rem;
+}
+
+.nav-links{
+    display:none;
+}
+
+.hamburger{
+    display:flex;
+}
+
+/* Hide desktop buttons */
+
+.register-btn,
+.login-btn,
+.theme-toggle{
+    display:none;
+}
+
+/* Hero */
+
+#hero{
+    min-height:auto;
+    padding-top:100px;
+    padding-bottom:60px;
+}
+
+.hero-content{
+    text-align:center;
+    max-width:100%;
+}
+
+.hero-title{
+    font-size:2.3rem;
+    line-height:1.2;
+}
+
+.hero-sub{
+    font-size:1.05rem;
+}
+
+.hero-btns{
+    flex-direction:column;
+}
+
+.btn-primary,
+.btn-secondary{
+    width:100%;
+    justify-content:center;
+}
+
+/* Stats */
+
+.hero-stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    text-align:center;
+}
+
+.stat{
+    text-align:center;
+}
+
+/* Other Sections */
+
+.about-features,
+.culture-grid,
+.reviews-grid,
+.pricing-grid,
+.gallery-grid,
+.footer-grid{
+    grid-template-columns:1fr;
+}
+
+.price-card.featured{
+    transform:none;
+}
+
+.footer-bottom{
+    flex-direction:column;
+    text-align:center;
+}
+
 }
 @media(max-width:480px){
   .hero-btns{flex-direction:column}
@@ -629,6 +723,9 @@ color:var(--wine);
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="register.html">Register</a>
+<a href="#" onclick="openLoginModal();closeMobile();">Login</a>
+<hr>
   <a href="#about" onclick="closeMobile()">About</a>
   <a href="#features" onclick="closeMobile()">Features</a>
   <a href="#culture" onclick="closeMobile()">Culture</a>
