@@ -41,6 +41,12 @@ return;
 
 
 const data=snap.data();
+console.log("FULL DATA:", data);
+
+console.log("Amount:", data.paymentAmount);
+console.log("Due Date:", data.paymentDueDate);
+console.log("Message:", data.paymentMessage);
+console.log("Payment Due:", data.paymentDue);
 
 document.getElementById("studentName").innerHTML=data.name;
 
@@ -51,6 +57,50 @@ document.getElementById("email").innerHTML=data.email;
 document.getElementById("course").innerHTML=data.course;
 
 document.getElementById("batch").innerHTML=data.batch;
+
+// Payment Due Section
+
+const paymentAmount = document.getElementById("paymentAmount");
+const paymentDueDate = document.getElementById("paymentDueDate");
+const paymentMessage = document.getElementById("paymentMessage");
+const payNowBtn = document.getElementById("payNowBtn");
+
+if (data.paymentDue) {
+
+    paymentAmount.textContent = data.paymentAmount || "-";
+
+    paymentDueDate.textContent = data.paymentDueDate || "-";
+
+    paymentMessage.textContent =
+    data.paymentMessage || "No payment information available.";
+    console.log("Displayed text:", paymentMessage.textContent);
+
+    payNowBtn.style.display = "inline-block";
+
+} else {
+
+    paymentAmount.textContent = "-";
+    paymentDueDate.textContent = "-";
+
+    paymentMessage.textContent =
+        "Your account is up to date. There are no pending installments.";
+
+    payNowBtn.style.display = "none";
+}
+
+payNowBtn.onclick = () => {
+
+    if (data.razorpayLink && data.razorpayLink.trim() !== "") {
+
+        window.open(data.razorpayLink, "_blank");
+
+    } else {
+
+        alert("No payment request is available at the moment.");
+
+    }
+
+};
 
 // ======================
 // LOAD SCHEDULE
@@ -202,3 +252,4 @@ themeBtn.addEventListener("click", () => {
             ? "☀️"
             : "🌙";
 });
+
