@@ -511,3 +511,20 @@ font-size:1.8rem;
 }
 
 }
+body.dark-mode{
+    background:#121212;
+    color:#ffffff;
+}
+
+body.dark-mode .card{
+    background:#1f1f1f;
+    color:#ffffff;
+}
+
+body.dark-mode .navbar{
+    background:#181818;
+}
+
+body.dark-mode footer{
+    background:#181818;
+}

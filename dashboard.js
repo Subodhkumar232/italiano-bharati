@@ -51,7 +51,6 @@ document.getElementById("email").innerHTML=data.email;
 document.getElementById("course").innerHTML=data.course;
 
 document.getElementById("batch").innerHTML=data.batch;
-    
 
 // ======================
 // LOAD SCHEDULE
@@ -117,6 +116,42 @@ liveButton.addEventListener("click", () => {
 
 });
 
+// Receipt
+document.getElementById("receiptBtn").addEventListener("click", () => {
+    if (data.receiptURL && data.receiptURL.trim() !== "") {
+        window.open(data.receiptURL, "_blank");
+    } else {
+        alert("Receipt is not available.");
+    }
+});
+
+// PDF Materials
+document.getElementById("materialsBtn").addEventListener("click", () => {
+    if (data.materialsURL && data.materialsURL.trim() !== "") {
+        window.open(data.materialsURL, "_blank");
+    } else {
+        alert("Materials are not available.");
+    }
+});
+
+// Assignments
+document.getElementById("assignmentBtn").addEventListener("click", () => {
+    if (data.assignmentURL && data.assignmentURL.trim() !== "") {
+        window.open(data.assignmentURL, "_blank");
+    } else {
+        alert("Assignments are not available.");
+    }
+});
+
+// Syllabus
+document.getElementById("syllabusBtn").addEventListener("click", () => {
+    if (data.syllabusURL && data.syllabusURL.trim() !== "") {
+        window.open(data.syllabusURL, "_blank");
+    } else {
+        alert("Syllabus is not available.");
+    }
+});
+
 const paymentStatus = document.getElementById("paymentStatus");
 
 if ((data.paymentStatus || "").trim().toLowerCase() === "paid") {
@@ -156,4 +191,14 @@ window.location.href="index.html";
 
 };
 
+// Dark Mode Toggle
+const themeBtn = document.querySelector(".theme-btn");
 
+themeBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    themeBtn.textContent =
+        document.body.classList.contains("dark-mode")
+            ? "☀️"
+            : "🌙";
+});
