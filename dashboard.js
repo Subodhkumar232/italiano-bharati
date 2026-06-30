@@ -64,18 +64,18 @@ const paymentAmount = document.getElementById("paymentAmount");
 const paymentDueDate = document.getElementById("paymentDueDate");
 const paymentMessage = document.getElementById("paymentMessage");
 const payNowBtn = document.getElementById("payNowBtn");
+const paymentValidationSection = document.getElementById("paymentValidationSection");
 
 if (data.paymentDue) {
 
     paymentAmount.textContent = data.paymentAmount || "-";
-
     paymentDueDate.textContent = data.paymentDueDate || "-";
 
     paymentMessage.textContent =
-    data.paymentMessage || "No payment information available.";
-    console.log("Displayed text:", paymentMessage.textContent);
+        data.paymentMessage || "No payment information available.";
 
     payNowBtn.style.display = "inline-block";
+    paymentValidationSection.style.display = "block";
 
 } else {
 
@@ -86,8 +86,8 @@ if (data.paymentDue) {
         "Your account is up to date. There are no pending installments.";
 
     payNowBtn.style.display = "none";
+    paymentValidationSection.style.display = "none";
 }
-
 payNowBtn.onclick = () => {
 
     if (data.razorpayLink && data.razorpayLink.trim() !== "") {
@@ -100,6 +100,13 @@ payNowBtn.onclick = () => {
 
     }
 
+};
+
+document.getElementById("validatePaymentBtn").onclick = () => {
+    window.open(
+        "https://forms.gle/ekSFPGbqx5zjF7xu7",
+        "_blank"
+    );
 };
 
 // ======================
@@ -202,6 +209,7 @@ document.getElementById("syllabusBtn").addEventListener("click", () => {
     }
 });
 
+
 const paymentStatus = document.getElementById("paymentStatus");
 
 if ((data.paymentStatus || "").trim().toLowerCase() === "paid") {
@@ -222,7 +230,6 @@ document.getElementById("lastTransaction").textContent =
 document.getElementById("transactionDate").textContent =
     data.transactionDate || "--";
 });
-
 
 
 document.querySelector(".logout-btn").onclick=async()=>{
