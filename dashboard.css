@@ -746,9 +746,12 @@ a {
     margin-bottom: 2px;
 }
 
-/* ---------------- LIGHT MODE ----------------
-   Light mode is the default. No class is required.
-*/
+/* ---------------- LIGHT MODE ---------------- */
+
+body.light-mode {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+}
 
 /* ---------------- MOBILE ---------------- */
 
@@ -1473,44 +1476,85 @@ body.dark-mode .quick-action strong {
 }
 
 /* =========================================================
-   THEME TOGGLE
-   =========================================================
-   Default: Light Mode
-   Optional: add .dark-mode to <body> for Dark Mode.
-*/
+   MOBILE LAYOUT FIX
+   Desktop layout above remains unchanged.
+   On phones, the sidebar no longer occupies page width.
+   ========================================================= */
+@media (max-width: 1100px) {
 
-.theme-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .app-shell {
+        display: block !important;
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    .sidebar {
+        position: fixed !important;
+        left: 0 !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        width: min(82vw, 300px) !important;
+        min-width: 0 !important;
+        height: 100vh !important;
+        transform: translateX(-105%) !important;
+        z-index: 1000 !important;
+    }
+
+    .sidebar.mobile-open {
+        transform: translateX(0) !important;
+    }
+
+    .main-content {
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 0 16px 25px !important;
+    }
+
+    .desktop-topbar {
+        display: none !important;
+    }
+
+    .mobile-header {
+        display: flex !important;
+        width: 100% !important;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr !important;
+        width: 100% !important;
+    }
+
+    .dashboard-card,
+    .welcome-card,
+    .quick-action {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 }
 
-.theme-btn:focus-visible {
-    outline: 2px solid var(--primary);
-    outline-offset: 2px;
-}
+/* Extra protection for actual phone widths */
+@media (max-width: 767px) {
+    .main-content {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
 
-/* Floating app popup follows the selected theme */
-body.dark-mode .app-download-popup {
-    background: var(--surface);
-    border-color: var(--border);
-    box-shadow: 0 18px 45px rgba(0, 0, 0, .35);
-}
+    .mobile-header {
+        margin-left: -14px;
+        margin-right: -14px;
+        width: calc(100% + 28px) !important;
+    }
 
-body.dark-mode .app-popup-content strong {
-    color: var(--text);
-}
-
-body.dark-mode .app-popup-content span {
-    color: var(--muted);
-}
-
-body.dark-mode .app-popup-close {
-    color: var(--muted);
-}
-
-body.dark-mode .app-popup-close:hover {
-    background: var(--surface-2);
-    color: var(--text);
+    .dashboard-card {
+        padding: 17px !important;
+    }
 }
