@@ -259,3 +259,35 @@ themeBtn.addEventListener("click", () => {
             ? "☀️"
             : "🌙";
 });
+
+// ===============================
+// APP DOWNLOAD POPUP
+// ===============================
+
+document.addEventListener("DOMContentLoaded", () => {
+    const popup = document.getElementById("appDownloadPopup");
+    const closeButton = document.getElementById("closeAppPopup");
+    const downloadButton = document.getElementById("downloadAppButton");
+
+    // Make sure popup exists before doing anything
+    if (!popup) return;
+
+    // Show popup after 3 seconds
+    setTimeout(() => {
+        popup.classList.add("show");
+    }, 3000);
+
+    // Close popup
+    if (closeButton) {
+        closeButton.addEventListener("click", () => {
+            popup.classList.remove("show");
+        });
+    }
+
+    // Close popup when app download button is clicked
+    if (downloadButton) {
+        downloadButton.addEventListener("click", () => {
+            popup.classList.remove("show");
+        });
+    }
+});
