@@ -746,12 +746,9 @@ a {
     margin-bottom: 2px;
 }
 
-/* ---------------- LIGHT MODE ---------------- */
-
-body.light-mode {
-    --bg: #f8fafc;
-    --surface: #ffffff;
-}
+/* ---------------- LIGHT MODE ----------------
+   Light mode is the default. No class is required.
+*/
 
 /* ---------------- MOBILE ---------------- */
 
@@ -1115,11 +1112,10 @@ body.light-mode {
 /* =========================================================
    DARK MODE
    =========================================================
-   The existing theme button toggles .light-mode on <body>.
-   Therefore the default dashboard is light, and these variables
-   apply when body is NOT in light-mode.
+   Light mode is the default dashboard theme.
+   Dark-mode styles apply only when the body has .dark-mode.
 */
-body:not(.light-mode) {
+body.dark-mode {
     --bg: #080d17;
     --surface: #111827;
     --surface-2: #182233;
@@ -1135,199 +1131,386 @@ body:not(.light-mode) {
     --shadow: 0 14px 40px rgba(0, 0, 0, .28);
 }
 
-body:not(.light-mode) {
+body.dark-mode {
     background: var(--bg);
     color: var(--text);
 }
 
-body:not(.light-mode) .mobile-header {
+body.dark-mode .mobile-header {
     background: rgba(8, 13, 23, .94);
     border-color: var(--border);
 }
 
-body:not(.light-mode) .icon-btn {
+body.dark-mode .icon-btn {
     background: var(--surface);
     border-color: var(--border);
     color: var(--text);
 }
 
-body:not(.light-mode) .desktop-topbar {
+body.dark-mode .desktop-topbar {
     border-color: var(--border);
 }
 
-body:not(.light-mode) .welcome-card {
+body.dark-mode .welcome-card {
     background:
         radial-gradient(circle at 88% 35%, rgba(255,255,255,.10), transparent 23%),
         linear-gradient(120deg, #521324 0%, #841b36 50%, #a8324e 100%);
     box-shadow: 0 18px 40px rgba(0, 0, 0, .28);
 }
 
-body:not(.light-mode) .quick-action,
-body:not(.light-mode) .dashboard-card {
+body.dark-mode .quick-action,
+body.dark-mode .dashboard-card {
     background: var(--surface);
     border-color: var(--border);
     box-shadow: var(--shadow);
 }
 
-body:not(.light-mode) .quick-action:hover {
+body.dark-mode .quick-action:hover {
     box-shadow: 0 18px 45px rgba(0, 0, 0, .34);
 }
 
-body:not(.light-mode) .quick-action > span {
+body.dark-mode .quick-action > span {
     background: var(--primary-soft);
 }
 
-body:not(.light-mode) .info-list {
+body.dark-mode .info-list {
     border-color: var(--border);
 }
 
-body:not(.light-mode) .info-list > div {
+body.dark-mode .info-list > div {
     border-color: var(--border);
 }
 
-body:not(.light-mode) .status-row,
-body:not(.light-mode) .transaction-grid > div,
-body:not(.light-mode) .resource-list li,
-body:not(.light-mode) .due-summary > div {
+body.dark-mode .status-row,
+body.dark-mode .transaction-grid > div,
+body.dark-mode .resource-list li,
+body.dark-mode .due-summary > div {
     background: var(--surface-2);
     border-color: var(--border);
 }
 
-body:not(.light-mode) .status-pill {
+body.dark-mode .status-pill {
     background: var(--green-soft);
     color: var(--green);
 }
 
-body:not(.light-mode) .resource-list li span {
+body.dark-mode .resource-list li span {
     color: #aeb8c8;
 }
 
-body:not(.light-mode) .mobile-details summary {
+body.dark-mode .mobile-details summary {
     background: var(--surface-2);
     border-color: var(--border);
     color: var(--text);
 }
 
-body:not(.light-mode) .mobile-details .resource-list,
-body:not(.light-mode) .mobile-details .schedule-list {
+body.dark-mode .mobile-details .resource-list,
+body.dark-mode .mobile-details .schedule-list {
     background: var(--surface);
     border-color: var(--border);
 }
 
-body:not(.light-mode) .schedule-list div {
+body.dark-mode .schedule-list div {
     border-color: var(--border);
 }
 
-body:not(.light-mode) .live-card {
+body.dark-mode .live-card {
     background: linear-gradient(145deg, #111827 0%, #21131a 100%);
 }
 
-body:not(.light-mode) .live-glow {
+body.dark-mode .live-glow {
     background: rgba(227, 91, 118, .10);
 }
 
-body:not(.light-mode) .live-dot {
+body.dark-mode .live-dot {
     color: #ff91a4;
     background: #321823;
 }
 
-body:not(.light-mode) .payment-due-card {
+body.dark-mode .payment-due-card {
     background: linear-gradient(145deg, #111827 0%, #1b1714 100%);
 }
 
-body:not(.light-mode) .due-message,
-body:not(.light-mode) .validation-section p,
-body:not(.light-mode) .card-description {
+body.dark-mode .due-message,
+body.dark-mode .validation-section p,
+body.dark-mode .card-description {
     color: var(--muted);
 }
 
-body:not(.light-mode) .divider {
+body.dark-mode .divider {
     background: var(--border);
 }
 
-body:not(.light-mode) .secondary-btn {
+body.dark-mode .secondary-btn {
     background: var(--surface-2);
     border-color: var(--border);
     color: var(--text);
 }
 
-body:not(.light-mode) .secondary-btn:hover {
+body.dark-mode .secondary-btn:hover {
     border-color: var(--primary);
     color: var(--primary);
 }
 
-body:not(.light-mode) .logout-card {
+body.dark-mode .logout-card {
     background: #0e1623;
 }
 
-body:not(.light-mode) .logout-big {
+body.dark-mode .logout-big {
     background: #182233;
     border-color: #334158;
     color: #dce4ef;
 }
 
-body:not(.light-mode) .logout-big:hover {
+body.dark-mode .logout-big:hover {
     border-color: var(--primary);
     color: #ff9aae;
 }
 
-body:not(.light-mode) .footer {
+body.dark-mode .footer {
     color: #8f9aad;
 }
 
-body:not(.light-mode) .footer strong {
+body.dark-mode .footer strong {
     color: var(--text);
 }
 
 /* Dark-mode card icon surfaces */
-body:not(.light-mode) .profile-icon,
-body:not(.light-mode) .payment-icon,
-body:not(.light-mode) .material-icon,
-body:not(.light-mode) .assignment-icon,
-body:not(.light-mode) .syllabus-icon,
-body:not(.light-mode) .schedule-icon,
-body:not(.light-mode) .live-icon,
-body:not(.light-mode) .due-icon,
-body:not(.light-mode) .logout-icon {
+body.dark-mode .profile-icon,
+body.dark-mode .payment-icon,
+body.dark-mode .material-icon,
+body.dark-mode .assignment-icon,
+body.dark-mode .syllabus-icon,
+body.dark-mode .schedule-icon,
+body.dark-mode .live-icon,
+body.dark-mode .due-icon,
+body.dark-mode .logout-icon {
     background: #202b3c;
 }
 
 /* Better readability on dark screens */
-body:not(.light-mode) .card-label,
-body:not(.light-mode) .eyebrow {
+body.dark-mode .card-label,
+body.dark-mode .eyebrow {
     color: #e8788e;
 }
 
-body:not(.light-mode) .info-list span,
-body:not(.light-mode) .transaction-grid span,
-body:not(.light-mode) .schedule-list span,
-body:not(.light-mode) .due-summary span {
+body.dark-mode .info-list span,
+body.dark-mode .transaction-grid span,
+body.dark-mode .schedule-list span,
+body.dark-mode .due-summary span {
     color: #aeb8c8;
 }
 
-body:not(.light-mode) .primary-btn {
+body.dark-mode .primary-btn {
     background: var(--primary);
     color: #fff;
 }
 
-body:not(.light-mode) .primary-btn:hover {
+body.dark-mode .primary-btn:hover {
     background: var(--primary-dark);
 }
 
-body:not(.light-mode) .section-heading h2,
-body:not(.light-mode) .dashboard-card h3,
-body:not(.light-mode) .quick-action strong {
+body.dark-mode .section-heading h2,
+body.dark-mode .dashboard-card h3,
+body.dark-mode .quick-action strong {
     color: var(--text);
 }
 
 /* Dark mode mobile sidebar */
 @media (max-width: 900px) {
-    body:not(.light-mode) .sidebar {
+    body.dark-mode .sidebar {
         background: #060b14;
         box-shadow: 15px 0 45px rgba(0,0,0,.55);
     }
 
-    body:not(.light-mode) .brand-mini strong {
+    body.dark-mode .brand-mini strong {
         color: var(--text);
     }
+}
+.download-app-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 24px;
+  background: #111827;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.download-app-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+/* =========================================================
+   FLOATING APP DOWNLOAD POPUP
+   ========================================================= */
+
+.app-download-popup {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 350px;
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 17px;
+    background: #ffffff;
+    border: 1px solid #e6ebf2;
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+    z-index: 9999;
+
+    opacity: 0;
+    transform: translateY(25px);
+    pointer-events: none;
+
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.app-download-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.app-popup-icon {
+    width: 43px;
+    height: 43px;
+    min-width: 43px;
+    display: grid;
+    place-items: center;
+    background: #fff1f3;
+    border-radius: 12px;
+    font-size: 21px;
+}
+
+.app-popup-content {
+    flex: 1;
+    padding-right: 10px;
+}
+
+.app-popup-content strong {
+    display: block;
+    color: #172033;
+    font-size: 14px;
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+
+.app-popup-content span {
+    display: block;
+    color: #718096;
+    font-size: 11px;
+    line-height: 1.4;
+    margin-bottom: 11px;
+}
+
+.app-popup-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 7px 13px;
+    background: #b91c3c;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.app-popup-button:hover {
+    background: #8f1530;
+    transform: translateY(-1px);
+}
+
+.app-popup-close {
+    position: absolute;
+    top: 7px;
+    right: 9px;
+    width: 25px;
+    height: 25px;
+    border: 0;
+    background: transparent;
+    color: #718096;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.app-popup-close:hover {
+    background: #f1f5f9;
+    color: #172033;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .app-download-popup {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        width: auto;
+        padding: 15px;
+    }
+
+    .app-popup-content strong {
+        font-size: 13px;
+    }
+
+    .app-popup-content span {
+        font-size: 10px;
+    }
+
+    .app-popup-button {
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   THEME TOGGLE
+   =========================================================
+   Default: Light Mode
+   Optional: add .dark-mode to <body> for Dark Mode.
+*/
+
+.theme-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.theme-btn:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Floating app popup follows the selected theme */
+body.dark-mode .app-download-popup {
+    background: var(--surface);
+    border-color: var(--border);
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .35);
+}
+
+body.dark-mode .app-popup-content strong {
+    color: var(--text);
+}
+
+body.dark-mode .app-popup-content span {
+    color: var(--muted);
+}
+
+body.dark-mode .app-popup-close {
+    color: var(--muted);
+}
+
+body.dark-mode .app-popup-close:hover {
+    background: var(--surface-2);
+    color: var(--text);
 }

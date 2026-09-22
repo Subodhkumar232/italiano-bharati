@@ -259,4 +259,21 @@ themeBtn.addEventListener("click", () => {
             ? "☀️"
             : "🌙";
 });
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+    const popup = document.getElementById("appDownloadPopup");
+    const closeButton = document.getElementById("closeAppPopup");
+
+    // Show popup 3 seconds after dashboard loads
+    setTimeout(function () {
+        popup.classList.add("show");
+    }, 3000);
+
+    // Close popup
+    closeButton.addEventListener("click", function () {
+        popup.classList.remove("show");
+    });
+
+});
+</script>

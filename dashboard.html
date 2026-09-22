@@ -11,6 +11,158 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="dashboard.css">
+
+<style>
+/* ================================
+   FLOATING APP DOWNLOAD POPUP
+   ================================ */
+.app-download-popup {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 350px;
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 17px;
+    background: #ffffff;
+    border: 1px solid #e6ebf2;
+    border-radius: 16px;
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+    z-index: 99999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(25px);
+    pointer-events: none;
+    transition: opacity .3s ease, transform .3s ease, visibility .3s ease;
+}
+
+.app-download-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.app-popup-icon {
+    width: 43px;
+    height: 43px;
+    min-width: 43px;
+    display: grid;
+    place-items: center;
+    background: #fff1f3;
+    border-radius: 12px;
+    font-size: 21px;
+}
+
+.app-popup-content {
+    flex: 1;
+    padding-right: 10px;
+}
+
+.app-popup-content strong {
+    display: block;
+    color: #172033;
+    font-size: 14px;
+    line-height: 1.3;
+    margin-bottom: 4px;
+}
+
+.app-popup-content span {
+    display: block;
+    color: #718096;
+    font-size: 11px;
+    line-height: 1.4;
+    margin-bottom: 11px;
+}
+
+.app-popup-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 7px 13px;
+    background: #b91c3c;
+    color: #ffffff !important;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: .2s ease;
+}
+
+.app-popup-button:hover {
+    background: #8f1530;
+    transform: translateY(-1px);
+}
+
+.app-popup-close {
+    position: absolute;
+    top: 7px;
+    right: 9px;
+    width: 25px;
+    height: 25px;
+    border: 0;
+    background: transparent;
+    color: #718096;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.app-popup-close:hover {
+    background: #f1f5f9;
+    color: #172033;
+}
+
+/* Dark mode */
+body.dark-mode .app-download-popup {
+    background: #111827;
+    border-color: #263246;
+    box-shadow: 0 18px 45px rgba(0,0,0,.4);
+}
+
+body.dark-mode .app-popup-content strong {
+    color: #f1f5f9;
+}
+
+body.dark-mode .app-popup-content span {
+    color: #a7b1c2;
+}
+
+body.dark-mode .app-popup-close {
+    color: #a7b1c2;
+}
+
+body.dark-mode .app-popup-close:hover {
+    background: #182233;
+    color: #f1f5f9;
+}
+
+@media (max-width: 600px) {
+    .app-download-popup {
+        left: 14px;
+        right: 14px;
+        bottom: 14px;
+        width: auto;
+        padding: 15px;
+    }
+
+    .app-popup-content strong {
+        font-size: 13px;
+    }
+
+    .app-popup-content span {
+        font-size: 10px;
+    }
+
+    .app-popup-button {
+        width: 100%;
+    }
+}
+</style>
+
 </head>
 
 <body>
@@ -32,6 +184,28 @@
         </div>
     </header>
 
+<!-- Floating App Download Popup -->
+<div class="app-download-popup" id="appDownloadPopup">
+    <button class="app-popup-close" id="closeAppPopup" aria-label="Close">
+        ×
+    </button>
+
+    <div class="app-popup-icon">📱</div>
+
+    <div class="app-popup-content">
+        <strong>Get the Italiano Bharati App</strong>
+        <span>Download the latest version for easier access</span>
+
+        <a
+            href="https://mega.nz/file/6vB3WKzQ#XWSqHY_5ragTDIHng70ZP5duArwRcGQmHNBFrgErnFo"
+            class="app-popup-button"
+            id="downloadAppButton"
+        >
+            Download App
+        </a>
+    </div>
+</div>
+
     <!-- Desktop sidebar / mobile collapsible navigation -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
@@ -43,6 +217,12 @@
         </div>
 
         <nav class="main-nav" aria-label="Student navigation">
+            <a
+  href="https://mega.nz/file/6vB3WKzQ#XWSqHY_5ragTDIHng70ZP5duArwRcGQmHNBFrgErnFo"
+  class="download-app-btn"
+>
+  📱   Install Android App     
+</a>
             <a class="nav-item active" href="#overview">
                 <span class="nav-icon">⌂</span>
                 <span>Dashboard</span>
@@ -408,13 +588,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    /* Light mode is the default. Dark mode is enabled only with .dark-mode. */
+    document.body.classList.remove("dark-mode");
+    document.body.classList.add("light-mode");
+
     document.querySelectorAll(".theme-btn").forEach(btn => {
+        btn.textContent = "🌙";
+        btn.setAttribute("aria-label", "Switch to dark mode");
+
         btn.addEventListener("click", () => {
-            document.body.classList.toggle("light-mode");
+            const darkMode = document.body.classList.toggle("dark-mode");
+            document.body.classList.toggle("light-mode", !darkMode);
+
             document.querySelectorAll(".theme-btn").forEach(b => {
-                b.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
+                b.textContent = darkMode ? "☀️" : "🌙";
+                b.setAttribute(
+                    "aria-label",
+                    darkMode ? "Switch to light mode" : "Switch to dark mode"
+                );
             });
         });
+    });
+
+    /* Floating app-download popup */
+    const appPopup = document.getElementById("appDownloadPopup");
+    const closeAppPopup = document.getElementById("closeAppPopup");
+    const downloadAppButton = document.getElementById("downloadAppButton");
+
+    // Show the popup after the dashboard has loaded.
+    window.setTimeout(() => {
+        appPopup?.classList.add("show");
+    }, 1500);
+
+    // Close the popup for this page load.
+    closeAppPopup?.addEventListener("click", () => {
+        appPopup?.classList.remove("show");
+    });
+
+    // Also close it after the student starts the download.
+    downloadAppButton?.addEventListener("click", () => {
+        appPopup?.classList.remove("show");
     });
 
     /* Mirror existing schedule values when dashboard.js fills the original IDs. */
