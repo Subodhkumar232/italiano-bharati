@@ -32,6 +32,27 @@
         </div>
     </header>
 
+
+    <!-- Floating App Download Popup -->
+    <div class="app-download-popup" id="appDownloadPopup">
+        <button class="app-popup-close" id="closeAppPopup" aria-label="Close">×</button>
+
+        <div class="app-popup-icon">📱</div>
+
+        <div class="app-popup-content">
+            <strong>Get the Italiano Bharati App</strong>
+            <span>Download the latest version for easier access</span>
+
+            <a
+                href="https://mega.nz/file/6vB3WKzQ#XWSqHY_5ragTDIHng70ZP5duArwRcGQmHNBFrgErnFo"
+                class="app-popup-button"
+                id="downloadAppButton"
+            >
+                Download App
+            </a>
+        </div>
+    </div>
+
     <!-- Desktop sidebar / mobile collapsible navigation -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
@@ -415,6 +436,25 @@ document.addEventListener("DOMContentLoaded", () => {
                 b.textContent = document.body.classList.contains("light-mode") ? "☀️" : "🌙";
             });
         });
+    });
+
+
+    /* Floating app-download popup */
+    const appPopup = document.getElementById("appDownloadPopup");
+    const closeAppPopup = document.getElementById("closeAppPopup");
+    const downloadAppButton = document.getElementById("downloadAppButton");
+
+    // Show popup 3 seconds after the mobile dashboard loads.
+    window.setTimeout(() => {
+        appPopup?.classList.add("show");
+    }, 3000);
+
+    closeAppPopup?.addEventListener("click", () => {
+        appPopup?.classList.remove("show");
+    });
+
+    downloadAppButton?.addEventListener("click", () => {
+        appPopup?.classList.remove("show");
     });
 
     /* Mirror existing schedule values when dashboard.js fills the original IDs. */
